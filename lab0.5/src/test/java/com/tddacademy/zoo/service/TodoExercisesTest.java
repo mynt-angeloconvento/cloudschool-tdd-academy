@@ -101,51 +101,48 @@ class TodoExercisesTest {
     @Test
     @DisplayName("TODO: Stub Exercise 1 - Should calculate average weight with stub data")
     void shouldCalculateAverageWeightWithStubData() {
-        // TODO: Complete this test using stubs
         // 1. Create stub data: simba (180.5), nala (160.0), timon (2.5)
         // 2. Mock animalRepository.findAll() to return this stub data
         // 3. Call animalService.getAverageWeight()
         // 4. Assert the average is 114.33 (with 0.01 precision)
         
         // Your code here:
-        // List<Animal> animals = Arrays.asList(simba, nala, timon);
-        // when(animalRepository.findAll()).thenReturn(animals);
-        //
-        // double averageWeight = animalService.getAverageWeight();
-        //
-        // assertEquals(114.33, averageWeight, 0.01);
+        List<Animal> animals = Arrays.asList(simba, nala, timon);
+        when(animalRepository.findAll()).thenReturn(animals);
+        
+        double averageWeight = animalService.getAverageWeight();
+        
+        assertEquals(114.33, averageWeight, 0.01);
     }
 
     @Test
     @DisplayName("TODO: Stub Exercise 2 - Should handle empty repository with stub")
     void shouldHandleEmptyRepositoryWithStub() {
-        // TODO: Complete this test using stubs
         // 1. Mock animalRepository.findAll() to return empty list
         // 2. Call animalService.getAverageWeight()
         // 3. Assert the result is 0.0
         
         // Your code here:
-        // when(animalRepository.findAll()).thenReturn(Arrays.asList());
-        //
-        // double averageWeight = animalService.getAverageWeight();
-        //
-        // assertEquals(0.0, averageWeight, 0.01);
+        when(animalRepository.findAll()).thenReturn(Arrays.asList());
+        
+        double averageWeight = animalService.getAverageWeight();
+        
+        assertEquals(0.0, averageWeight, 0.01);
     }
 
     @Test
     @DisplayName("TODO: Stub Exercise 3 - Should get animal count with stub")
     void shouldGetAnimalCountWithStub() {
-        // TODO: Complete this test using stubs
         // 1. Mock animalRepository.count() to return 15
         // 2. Call animalService.getAnimalCount()
         // 3. Assert the result is 15
         
         // Your code here:
-        // when(animalRepository.count()).thenReturn(15);
-        //
-        // int count = animalService.getAnimalCount();
-        //
-        // assertEquals(15, count);
+        when(animalRepository.count()).thenReturn(15);
+        
+        int count = animalService.getAnimalCount();
+        
+        assertEquals(15, count);
     }
 
     // ========== SPY EXERCISES ==========
