@@ -17,7 +17,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+// import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,52 +51,49 @@ class TodoExercisesTest {
     @Test
     @DisplayName("TODO: Mock Exercise 1 - Should find animal by species")
     void shouldFindAnimalBySpecies() {
-        // TODO: Complete this test using mocks
         // 1. Mock animalRepository.findBySpecies("Lion") to return a list with simba and nala
         // 2. Call animalService.getAnimalsBySpecies("Lion")
         // 3. Assert that the result contains 2 animals
         // 4. Assert that both animals are lions
         
         // Your code here:
-        // when(animalRepository.findBySpecies("Lion")).thenReturn(Arrays.asList(simba, nala));
-        //
-        // List<Animal> lions = animalService.getAnimalsBySpecies("Lion");
-        //
-        // assertEquals(2, lions.size());
-        // assertTrue(lions.stream().allMatch(animal -> "Lion".equals(animal.getSpecies())));
+        when(animalRepository.findBySpecies("Lion")).thenReturn(Arrays.asList(simba, nala));
+        
+        List<Animal> lions = animalService.getAnimalsBySpecies("Lion");
+        
+        assertEquals(2, lions.size());
+        assertTrue(lions.stream().allMatch(animal -> "Lion".equals(animal.getSpecies())));
     }
 
     @Test
     @DisplayName("TODO: Mock Exercise 2 - Should handle animal not found")
     void shouldHandleAnimalNotFound() {
-        // TODO: Complete this test using mocks
         // 1. Mock animalRepository.findById(999L) to return Optional.empty()
         // 2. Call animalService.getAnimalById(999L)
         // 3. Assert that the result is empty
         
         // Your code here:
-        // when(animalRepository.findById(999L)).thenReturn(Optional.empty());
-        //
-        // Optional<Animal> result = animalService.getAnimalById(999L);
-        //
-        // assertTrue(result.isEmpty());
+        when(animalRepository.findById(999L)).thenReturn(Optional.empty());
+        
+        Optional<Animal> result = animalService.getAnimalById(999L);
+        
+        assertTrue(result.isEmpty());
     }
 
     @Test
     @DisplayName("TODO: Mock Exercise 3 - Should verify repository save was called")
     void shouldVerifyRepositorySaveWasCalled() {
-        // TODO: Complete this test using mocks
         // 1. Mock animalRepository.save(any(Animal.class)) to return simba with ID 1
         // 2. Call animalService.createAnimal(simba)
         // 3. Verify that animalRepository.save(simba) was called exactly once
         
         // Your code here:
-        // simba.setId(1L);
-        // when(animalRepository.save(any(Animal.class))).thenReturn(simba);
-        //
-        // animalService.createAnimal(simba);
-        //
-        // verify(animalRepository, times(1)).save(simba);
+        simba.setId(1L);
+        when(animalRepository.save(any(Animal.class))).thenReturn(simba);
+        
+        animalService.createAnimal(simba);
+        
+        verify(animalRepository, times(1)).save(simba);
     }
 
     // ========== STUB EXERCISES ==========
